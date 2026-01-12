@@ -179,7 +179,7 @@ function App() {
               View Projects
             </button>
             <a
-              href="https://drive.google.com/file/d/1C5IoeLrMj4InmgNzFrYpc7x1ILxAnEpl/view?usp=sharing"
+              href="https://drive.google.com/file/d/1s8UrRl7Wt60Sr5WEXuyGWOcr-kiezQYP/view?usp=sharing"
               target="_blank"
               rel="noopener noreferrer"
               className="px-8 py-3 border border-white/20 text-[#E5E5E5] hover:bg-white/20 rounded-lg font-medium transition-all duration-300 flex items-center justify-center gap-2 backdrop-blur-xl"
