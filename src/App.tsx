@@ -278,38 +278,55 @@ function App() {
           <h2 className="text-3xl sm:text-4xl font-bold mb-12 text-center text-[#B48A3A]">Featured Projects</h2>
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
             <div className="bg-white/10 backdrop-blur-xl border border-white/20 rounded-2xl p-8 hover:bg-white/20 transition-all duration-300 transform hover:scale-105 card-hover">
-              <h3 className="text-2xl font-bold mb-4 text-[#B48A3A]">GraphGuard – Explainable AML Risk Analysis System</h3>
-              <p className="text-[#E5E5E5] mb-6 leading-relaxed">
-                A graph-based Anti-Money Laundering (AML) risk analysis system that prioritizes suspicious bank accounts by modeling financial transactions as a graph and applying explainable Graph Neural Networks, with an interactive Streamlit dashboard for analyst-driven investigation.
-              </p>
-              <div className="flex flex-wrap gap-2 mb-6">
-                {['Python', 'PyTorch Geometric', 'Graph Neural Networks', 'Streamlit'].map((tech, index) => (
-                  <span key={index} className="px-3 py-1 bg-[#B48A3A]/20 text-[#B48A3A] rounded-full text-sm backdrop-blur-sm">
-                    {tech}
-                  </span>
-                ))}
-              </div>
-              <div className="flex items-center gap-6">
-  <Link
-    to="/case-study/graphguard"
-    className="inline-flex items-center gap-2 px-4 py-2 bg-[#B48A3A]/20 text-[#B48A3A] rounded-lg hover:bg-[#B48A3A]/30 transition-all duration-300"
-  >
-    View Case Study →
-  </Link>
+  <h3 className="text-2xl font-bold mb-4 text-[#B48A3A]">
+    GraphGuard – AML Risk Analysis Platform
+  </h3>
 
-  <a
-    href="https://github.com/VUPPALAVARSHITH/GraphGuard-AML"
-    target="_blank"
-    rel="noopener noreferrer"
-    className="inline-flex items-center gap-2 text-[#B48A3A] hover:text-[#D4AA4A] transition-colors duration-300"
-  >
-    <Github size={20} />
-    GitHub
-    <ExternalLink size={16} />
-  </a>
+  <p className="text-[#E5E5E5] mb-6 leading-relaxed">
+    An end-to-end Anti-Money Laundering (AML) risk analysis platform that
+    operationalizes graph-based machine learning models into a scalable,
+    analyst-facing investigation system. Financial transactions are modeled
+    as a graph, risk is computed offline using Graph Neural Networks, and
+    results are explored through a full-stack web application.
+  </p>
+
+  <div className="flex flex-wrap gap-2 mb-6">
+    {[
+      'Graph Neural Networks',
+      'PyTorch Geometric',
+      'PostgreSQL',
+      'Spring Boot',
+      'React',
+      'TypeScript',
+    ].map((tech, index) => (
+      <span
+        key={index}
+        className="px-3 py-1 bg-[#B48A3A]/20 text-[#B48A3A] rounded-full text-sm backdrop-blur-sm"
+      >
+        {tech}
+      </span>
+    ))}
+  </div>
+
+  <div className="flex items-center gap-6">
+    <Link
+      to="/case-study/graphguard"
+      className="inline-flex items-center gap-2 px-4 py-2 bg-[#B48A3A]/20 text-[#B48A3A] rounded-lg hover:bg-[#B48A3A]/30 transition-all duration-300"
+    >
+      View Case Study →
+    </Link>
+
+    <a
+      href="https://github.com/VUPPALAVARSHITH/GraphGuard-AML-Platform"
+      target="_blank"
+      rel="noopener noreferrer"
+      className="inline-flex items-center gap-2 text-[#B48A3A] hover:text-[#D4AA4A] transition-colors duration-300"
+    >
+      GitHub
+      <ExternalLink size={16} />
+    </a>
+  </div>
 </div>
-
-            </div>
 
 
 

@@ -18,20 +18,22 @@ function GraphGuardCaseStudy() {
 
         {/* Title */}
         <h1 className="text-4xl font-bold text-[#B48A3A] mb-4">
-          GraphGuard – Explainable AML Risk Analysis
+          GraphGuard – AML Risk Analysis Platform
         </h1>
 
         {/* Intro */}
         <p className="leading-relaxed max-w-3xl mb-4">
           GraphGuard is an end-to-end Anti-Money Laundering (AML) risk analysis
-          system that prioritizes suspicious bank accounts by modeling financial
-          transactions as a graph and applying explainable Graph Neural Networks.
+          platform that began as a graph-based machine learning research project
+          and evolved into a full-stack, analyst-facing investigation system.
+          Financial transactions are modeled as a graph, risk is computed
+          offline using Graph Neural Networks, and results are operationalized
+          through scalable backend services and an interactive web interface.
         </p>
 
-        {/* Why it matters */}
         <p className="text-[#B48A3A] font-medium mb-12">
-          Built to reflect how real AML analysts investigate risk under extreme
-          data imbalance.
+          Built to reflect how real AML analysts prioritize and investigate risk
+          under extreme class imbalance.
         </p>
 
         {/* Problem Context */}
@@ -47,19 +49,17 @@ function GraphGuardCaseStudy() {
             In practice, AML datasets are extremely imbalanced, and investigators
             can only review a limited number of high-risk accounts. As a result,
             optimizing for accuracy alone is insufficient — effective AML systems
-            must prioritize explainability and account-level risk ranking.
+            must prioritize explainability, ranking quality, and analyst trust.
           </p>
         </Section>
 
-        {/* System Architecture – Flow Version */}
+        {/* System Architecture */}
         <Section title="System Architecture">
-
           <p className="text-sm uppercase tracking-wider text-[#B48A3A] mb-6">
             End-to-End System Flow
           </p>
 
           <div className="space-y-4 max-w-xl">
-
             <FlowBlock title="Raw Transaction Data">
               AMLSim dataset containing millions of financial transactions
             </FlowBlock>
@@ -90,35 +90,57 @@ function GraphGuardCaseStudy() {
 
             <Arrow />
 
-            <FlowBlock title="Analyst Dashboard">
-              Streamlit interface for investigation and risk exploration
+            <FlowBlock title="Investigation Platform">
+              PostgreSQL-backed datastore, Spring Boot APIs, and a React-based
+              analyst dashboard for account exploration and transaction flow
+              analysis
             </FlowBlock>
-
           </div>
+        </Section>
+
+        {/* System Evolution */}
+        <Section title="System Evolution (ML → Full-Stack)">
+          <ul className="list-disc pl-6 space-y-3">
+            <li>
+              Graph Neural Networks (GraphSAGE + GAT) are trained offline to
+              compute edge-level and account-level AML risk scores.
+            </li>
+            <li>
+              Precomputed risk outputs are stored in PostgreSQL to decouple
+              machine learning inference from online investigation workloads.
+            </li>
+            <li>
+              Spring Boot REST APIs expose ranked accounts, transaction context,
+              and investigation views using pagination and indexed queries.
+            </li>
+            <li>
+              A React + TypeScript dashboard enables analysts to explore risky
+              accounts, inspect transaction flows, and understand model-driven
+              explanations.
+            </li>
+          </ul>
         </Section>
 
         {/* Engineering Decisions */}
         <Section title="Key Engineering Decisions">
           <ul className="list-disc pl-6 space-y-3">
             <li>
-              <strong>Graph-based Modeling:</strong> Used Graph Neural Networks to
-              capture relational dependencies between accounts and transactions
-              that are not observable in tabular representations.
+              <strong>Graph-based Modeling:</strong> Used Graph Neural Networks
+              to capture relational dependencies not observable in tabular data.
             </li>
             <li>
-              <strong>GraphSAGE & GAT:</strong> Selected GraphSAGE for scalable
-              neighborhood aggregation and GAT for attention-based weighting of
-              high-impact transactions.
+              <strong>GraphSAGE & GAT:</strong> Selected for scalable neighborhood
+              aggregation and attention-based weighting of high-impact
+              transactions.
             </li>
             <li>
-              <strong>Recall@K Evaluation:</strong> Optimized evaluation around
-              Recall@K and account-level metrics to align with analyst
-              investigation constraints.
+              <strong>Ranking-Focused Evaluation:</strong> Optimized for
+              Recall@K and account-level metrics aligned with analyst workflows.
             </li>
             <li>
-              <strong>Static Full-Graph Training:</strong> Adopted a static graph
-              setup to reflect realistic AML deployment and regulatory
-              constraints.
+              <strong>Offline ML + Online Serving:</strong> Separated model
+              training from investigation-time queries to ensure scalability
+              and reliability.
             </li>
           </ul>
         </Section>
@@ -128,18 +150,16 @@ function GraphGuardCaseStudy() {
           <ul className="list-disc pl-6 space-y-3">
             <li>
               <strong>Extreme Class Imbalance:</strong> Suspicious transactions
-              represented a very small fraction of the dataset, requiring careful
-              metric selection and evaluation strategy.
+              represented &lt;0.1% of the dataset, requiring careful metric
+              selection.
             </li>
             <li>
-              <strong>Scalability:</strong> Preprocessing and modeling were scaled
-              to approximately 6.9 million transactions under limited compute
-              resources.
+              <strong>Scalability:</strong> Preprocessing and modeling scaled to
+              ~6.9M transactions under limited compute constraints.
             </li>
             <li>
-              <strong>Explainability vs Performance:</strong> Prioritized
-              interpretability and trust over marginal performance gains from
-              deeper or more complex models.
+              <strong>Explainability vs Performance:</strong> Prioritized model
+              interpretability over marginal accuracy gains.
             </li>
           </ul>
         </Section>
@@ -150,8 +170,8 @@ function GraphGuardCaseStudy() {
             <li>Achieved ~0.65 ROC-AUC on a highly imbalanced AML dataset</li>
             <li>Successfully ranked high-risk accounts using Recall@K metrics</li>
             <li>
-              Delivered an analyst-facing Streamlit dashboard for interactive
-              investigation and risk exploration
+              Delivered an analyst-facing investigation dashboard supporting
+              account prioritization and transaction flow analysis
             </li>
           </ul>
         </Section>
@@ -164,16 +184,15 @@ function GraphGuardCaseStudy() {
               behavior over traditional tabular approaches
             </li>
             <li>
-              Evaluation metrics must align with operational goals rather than
-              generic accuracy measures
+              Evaluation metrics must align with operational investigation goals
             </li>
             <li>
               Explainability is a first-class requirement in regulated domains
               such as finance
             </li>
             <li>
-              With more time, I would explore temporal GNNs to capture evolving
-              transaction behavior across time windows
+              With more time, temporal GNNs could further capture evolving
+              transaction behavior
             </li>
           </ul>
         </Section>
@@ -183,7 +202,7 @@ function GraphGuardCaseStudy() {
         {/* CTA */}
         <div className="mt-10">
           <a
-            href="https://github.com/VUPPALAVARSHITH/GraphGuard-AML"
+            href="https://github.com/VUPPALAVARSHITH/GraphGuard-AML-Platform"
             target="_blank"
             rel="noopener noreferrer"
             className="inline-block px-6 py-3 bg-[#B48A3A]/20 text-[#B48A3A] rounded-lg hover:bg-[#B48A3A]/30 transition-all duration-300"
@@ -196,6 +215,8 @@ function GraphGuardCaseStudy() {
     </section>
   );
 }
+
+/* ---------- Reusable Components ---------- */
 
 type SectionProps = {
   title: string;
